@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;  // Keep this as it is, it will use the port provided by Render
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -34,7 +34,7 @@ app.post('/send-email', async (req, res) => {
     const mailOptions = {
       from: {
         name: 'This is the sender',
-        address: process.env.EMAIL,
+        address: "mzawyd@gmail.com",
       },
       to: 'reactnative43@gmail.com', // Default email if none provided
       subject: subject || 'Sending Email using Node.js',
@@ -58,5 +58,5 @@ app.use((req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server is running on https://server-email.onrender.com/`);  // Now using your hosted URL
 });
